@@ -216,3 +216,11 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Project-specific
+# personal study notes, not part of the deliverable
+notes/
+# local audio files used for testing
+samples/
+*.mp3
+*.wav
