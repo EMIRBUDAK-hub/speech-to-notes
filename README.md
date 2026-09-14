@@ -41,6 +41,29 @@ speech recognition. Among the implementations that run it on CPU:
 - **Vosk**: much smaller and faster, but one model per language (no language
   detection) and a clearly higher word error rate in French.
 
+### Model size: small
+
+Measured on a 12 s French recording (a sentence with a date, a surname and an
+amount), CPU only, int8 (`scripts/benchmark_models.py`):
+
+| model | size   | RTF  | output quality                                   |
+|-------|--------|------|--------------------------------------------------|
+| tiny  | 75 MB  | 0.06 | common words fine; surname and amount wrong      |
+| base  | 145 MB | 0.10 | amount right, surname still wrong                |
+| small | 480 MB | 0.29 | everything right                                 |
+
+RTF (real-time factor) is compute time divided by audio duration: at 0.29,
+one hour of audio takes about 17 minutes to transcribe, 5x more than `tiny`.
+That cost is acceptable because the tool runs offline on a finished recording
+(archiving, notes read later), so nobody waits in front of the screen. What
+breaks first in smaller models is exactly what matters in meeting notes: proper
+nouns, numbers, less frequent vocabulary — the words that are rare in the
+training data. One 12 s file is not enough to settle this for good; the
+benchmark will be re-run on longer, more varied recordings (other voices,
+English) before the choice is final.
+
+Whisper models are pre-trained by OpenAI; this project only runs inference.
+
 ## Known limitations
 
 To be written honestly as the project progresses.
