@@ -36,7 +36,6 @@ def transcribe(
 
     ``language`` is a two-letter code ("fr", "en"); None lets the model detect it.
     """
-    # TODO (Emir): see the conversation for what goes here.
     model = WhisperModel(model_size, device="cpu", compute_type="int8")                      # 1. load the model
     raw_segments, info = model.transcribe(audio, beam_size=5, word_timestamps=True, language=language)     # 2. run Whisper
     segments = []
