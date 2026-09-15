@@ -31,9 +31,10 @@ pip install --index-url https://download.pytorch.org/whl/cpu torch torchaudio to
 pip install -r requirements.txt
 ```
 
-Speaker diarization (milestone 2) uses pyannote models gated on Hugging Face:
-accept the terms of `pyannote/speaker-diarization-3.1` and
-`pyannote/segmentation-3.0`, create a read token, and export it as `HF_TOKEN`.
+Speaker diarization (`--diarize`) uses pyannote models gated on Hugging Face:
+accept the terms of `pyannote/speaker-diarization-community-1` (and, for
+older pyannote versions, `speaker-diarization-3.1` and `segmentation-3.0`),
+create a read token, and export it as `HF_TOKEN`.
 
 ## Usage
 
