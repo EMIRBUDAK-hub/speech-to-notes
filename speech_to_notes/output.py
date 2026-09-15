@@ -6,6 +6,7 @@ from pathlib import Path
 
 from speech_to_notes.align import Utterance
 from speech_to_notes.diarize import Turn
+from speech_to_notes.summarize import SUMMARY_KEYS, Summary
 from speech_to_notes.transcribe import Segment
 
 
@@ -42,11 +43,45 @@ def _rounded(d: dict) -> dict:
     return d
 
 
-def save_json(segments: list[Segment], path: str, turns: list[Turn] | None = None) -> None:
-    """Write every segment and word with timestamps (and the diarization turns, if
-    any), so later stages can reuse the results instead of recomputing them."""
+def save_json(
+    segments: list[Segment],
+    path: str,
+    language: str | None = None,
+    turns: list[Turn] | None = None,
+    summary: Summary | None = None,
+) -> None:
+    """Write every segment and word with timestamps (plus the detected language,
+    the diarization turns and the summary when available), so later stages can
+    reuse the results instead of recomputing them."""
     data = {
+        "language": language,
         "segments": [_rounded(asdict(s)) for s in segments],
         "turns": [_rounded(asdict(t)) for t in turns] if turns is not None else None,
+        "summary": asdict(summary) if summary is not None else None,
     }
     Path(path).write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+
+
+SUMMARY_TITLES = {
+    "topics": "Topics",
+    "decisions": "Decisions",
+    "action_items": "Action items",
+    "open_questions": "Open questions",
+}
+
+
+def save_summary(summary: Summary | None, path: str, engine_name: str, raw_reply: str | None = None) -> None:
+    """Write the summary as a small Markdown file. If the model never produced a
+    valid form, say so and keep its raw reply instead of pretending."""
+    lines = [f"# Summary ({engine_name})", ""]
+    if summary is None:
+        lines += ["**Summary failed**: the model did not return a valid form after a retry.", ""]
+        if raw_reply:
+            lines += ["Raw reply:", "", "```", raw_reply.strip(), "```"]
+    else:
+        for key in SUMMARY_KEYS:
+            items = getattr(summary, key)
+            lines.append(f"## {SUMMARY_TITLES[key]}")
+            lines += [f"- {item}" for item in items] if items else ["- (none)"]
+            lines.append("")
+    Path(path).write_text("\n".join(lines) + "\n", encoding="utf-8")

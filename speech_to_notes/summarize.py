@@ -41,17 +41,35 @@ Fill in the following JSON form and return ONLY the JSON, nothing else:
   "open_questions": ["each question raised and not settled"]
 }}
 
-Rules: write in the language of the transcript; keep each item to one short
-sentence; leave a list empty ([]) if the transcript contains nothing for it;
-do not invent anything that is not in the transcript.
+Rules: write every item in {language}; keep each item to one short sentence;
+leave a list empty ([]) if the transcript contains nothing for it; do not
+invent anything that is not in the transcript.
 
 Transcript:
 {transcript}
+
+{reminder}
 """
 
+# Small local models follow the language the instructions are written in more
+# than an instruction *about* language, so the last line speaks the target one.
+REMINDERS = {
+    "fr": "IMPORTANT : rédige chaque élément du JSON en français, pas en anglais.",
+    "en": "IMPORTANT: write every item of the JSON in English.",
+}
 
-def build_prompt(transcript: str) -> str:
-    return PROMPT.format(transcript=transcript)
+
+LANGUAGE_NAMES = {"fr": "French", "en": "English"}
+
+
+def build_prompt(transcript: str, language: str = "fr") -> str:
+    """``language`` is the two-letter code Whisper detected; small local models
+    ignore an indirect "same language as the transcript", so we name it."""
+    return PROMPT.format(
+        transcript=transcript,
+        language=LANGUAGE_NAMES.get(language, language),
+        reminder=REMINDERS.get(language, f"IMPORTANT: write every item in {language}."),
+    )
 
 
 # ---------------------------------------------------------------- engines
@@ -75,7 +93,8 @@ class LocalEngine:
             temperature=0.0,
             max_tokens=1024,
         )
-        return out["choices"][0]["message"]["content"]
+        self.last_reply = out["choices"][0]["message"]["content"]
+        return self.last_reply
 
 
 class MistralEngine:
@@ -102,7 +121,8 @@ class MistralEngine:
             timeout=120,
         )
         r.raise_for_status()
-        return r.json()["choices"][0]["message"]["content"]
+        self.last_reply = r.json()["choices"][0]["message"]["content"]
+        return self.last_reply
 
 
 # ---------------------------------------------------------------- your part
@@ -132,17 +152,17 @@ def parse_summary(text: str) -> Summary:
     return Summary(**data)
 
 
-def summarize(transcript: str, engine, retries: int = 1) -> Summary | None:
+def summarize(transcript: str, engine, language: str = "fr", retries: int = 1) -> Summary | None:
     """Ask the engine, parse the reply; on a bad reply, retry once with the
     error message appended to the prompt; if it still fails, return None."""
-    prompt = build_prompt(transcript)
+    prompt = build_prompt(transcript, language)
     for attempt in range(retries + 1):
         text = engine.complete(prompt)
         try:
             return parse_summary(text)
         except ValueError as error:
             # feed the mistake back so the next attempt can fix it
-            prompt = build_prompt(transcript) + (
+            prompt = build_prompt(transcript, language) + (
                 f"\n\nYour previous reply was rejected: {error}\n"
                 f"Previous reply:\n{text}\n\nReturn only the corrected JSON."
             )

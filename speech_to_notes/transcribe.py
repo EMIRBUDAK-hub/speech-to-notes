@@ -31,7 +31,7 @@ def transcribe(
     audio: np.ndarray,
     model_size: str = DEFAULT_MODEL_SIZE,
     language: str | None = None,
-) -> list[Segment]:
+) -> tuple[list[Segment], str]:
     """Run Whisper on 16 kHz mono samples and return timestamped segments.
 
     ``language`` is a two-letter code ("fr", "en"); None lets the model detect it.
@@ -42,4 +42,4 @@ def transcribe(
     for s in raw_segments:                                                                       # 3. convert to our own Segment / Word
         words = [Word(start=w.start, end=w.end, text=w.word.strip()) for w in s.words]
         segments.append(Segment(start=s.start, end=s.end, text=s.text.strip(), words=words))
-    return segments                                # 4.Done
+    return segments, info.language                             # 4.Done
