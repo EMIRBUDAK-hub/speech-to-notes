@@ -3,7 +3,7 @@
 A command-line tool that turns a recording of a conversation (meeting, interview,
 lecture) into structured, readable notes.
 
-Input: an audio file (mp3, wav). Output: a timestamped transcript, then speaker
+Input: an audio file (mp3, wav, m4a). Output: a timestamped transcript, then speaker
 labels, then a structured summary. Everything runs locally on a CPU-only laptop.
 French and English are supported.
 
@@ -103,3 +103,9 @@ Whisper models are pre-trained by OpenAI; this project only runs inference.
 - **Rare words on degraded audio.** On the same phone-quality recording,
   "docteur Damani" comes out as "deux pères de vanille". Proper nouns are the
   first casualty; see the model-size section.
+- **Not bit-for-bit reproducible across exports.** The same recording exported
+  as .wav and as .m4a gave two transcripts with the same meaning but different
+  wording in places, and one of them dropped a quiet 45 s passage (VAD
+  threshold). Tiny numeric differences in the input can flip beam search and
+  VAD decisions. Judging quality requires a reference transcript, not a diff
+  between two runs.

@@ -14,7 +14,7 @@ def build_parser() -> argparse.ArgumentParser:
         prog="speech_to_notes",
         description="Turn a recorded conversation into a timestamped transcript.",
     )
-    parser.add_argument("audio", help="path to an .mp3 or .wav file")
+    parser.add_argument("audio", help="path to an .mp3, .wav or .m4a file")
     parser.add_argument(
         "--model", default=DEFAULT_MODEL_SIZE,
         help=f"Whisper size: tiny, base, small, medium (default: {DEFAULT_MODEL_SIZE})",

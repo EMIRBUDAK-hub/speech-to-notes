@@ -7,7 +7,7 @@ from faster_whisper import decode_audio
 
 # Whisper models are trained on 16 kHz audio; anything else must be resampled.
 SAMPLE_RATE = 16_000
-SUPPORTED_EXTENSIONS = {".mp3", ".wav"}
+SUPPORTED_EXTENSIONS = {".mp3", ".wav", ".m4a"}
 
 
 def load_audio(path: str) -> np.ndarray:
