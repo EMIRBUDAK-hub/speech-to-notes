@@ -87,6 +87,15 @@ def assign_speakers(words: list[Word], turns: list[Turn]) -> list[tuple[Word, st
     return result
 
 
+def join(text: str, word: str) -> str:
+    """Append a word to a line. Whisper splits "c'est" into "c" + "'est" and
+    "là-bas" into "là" + "-bas": no space before a piece that starts with an
+    apostrophe, a hyphen or punctuation."""
+    if not text or word[:1] in "'-,.?!:;":
+        return text + word
+    return text + " " + word
+
+
 def group_utterances(labeled: list[tuple[Word, str]]) -> list[Utterance]:
     """Rule 5: merge consecutive words of the same speaker into utterances."""
     utterances = []
@@ -99,7 +108,7 @@ def group_utterances(labeled: list[tuple[Word, str]]) -> list[Utterance]:
         else:
             # same speaker: extend the current line
             current.end = word.end
-            current.text += " " + word.text
+            current.text = join(current.text, word.text)
     return utterances
 
 
@@ -113,7 +122,40 @@ def mark_overlaps(utterances: list[Utterance], turns: list[Turn]) -> None:
             if u.speaker != t.speaker and u.start <= t.start and t.end <= u.end:
                 # find the utterance during which t starts and attach t to it
                 for utt in utterances:
-                    if utt.start <= t.start <= utt.end:
+                    if utt.start <= t.start <= utt.end and utt.speaker != t.speaker:
                         utt.overlaps.append(t)
                         break
                 break
+
+
+MIN_UTTERANCE = 0.5  # seconds; a shorter line sandwiched between two lines of the same other speaker is a boundary error
+
+
+def merge_into(prev: Utterance, u: Utterance) -> None:
+    """Append u to prev (same line), keeping prev's speaker."""
+    prev.end = u.end
+    prev.text = join(prev.text, u.text)
+    prev.overlaps.extend(u.overlaps)
+
+
+def smooth(utterances: list[Utterance]) -> list[Utterance]:
+    """Rule 7: absorb tiny sandwiched utterances into their neighbours.
+
+    Walk the lines once. A line shorter than MIN_UTTERANCE whose previous and
+    next lines belong to the same other speaker is merged into the previous
+    line; the next line then has the same speaker as the (grown) previous one
+    and is merged too, so the three become one.
+    """
+    result = []
+    for i, u in enumerate(utterances):
+        prev = result[-1] if result else None
+        nxt = utterances[i + 1] if i + 1 < len(utterances) else None
+        if prev is None:
+            result.append(u)
+        elif u.speaker == prev.speaker:
+            merge_into(prev, u)  # continuation after an absorbed line
+        elif (u.end - u.start) < MIN_UTTERANCE and nxt is not None and nxt.speaker == prev.speaker:
+            merge_into(prev, u)  # the sandwiched tiny line: absorbed
+        else:
+            result.append(u)
+    return result

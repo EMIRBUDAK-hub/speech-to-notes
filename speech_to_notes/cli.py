@@ -53,7 +53,7 @@ def main() -> None:
 
     if args.diarize:
         # imported here so the transcription-only path never loads torch/pyannote
-        from speech_to_notes.align import assign_speakers, group_utterances, mark_overlaps
+        from speech_to_notes.align import assign_speakers, group_utterances, mark_overlaps, smooth
         from speech_to_notes.diarize import diarize
 
         print("Diarizing...")
@@ -64,7 +64,7 @@ def main() -> None:
         print(f"  diarization: {t_dia:.1f} s (RTF {t_dia / duration:.2f}), {len(speakers)} speaker(s)")
 
         words = [w for s in segments for w in s.words]
-        utterances = group_utterances(assign_speakers(words, turns))
+        utterances = smooth(group_utterances(assign_speakers(words, turns)))
         mark_overlaps(utterances, turns)
         save_speaker_text(utterances, out_dir / f"{stem}.txt")
     else:
