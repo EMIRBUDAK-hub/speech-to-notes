@@ -224,3 +224,6 @@ notes/
 samples/
 *.mp3
 *.wav
+
+# Transcripts produced by the CLI
+output/

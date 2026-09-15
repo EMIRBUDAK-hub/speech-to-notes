@@ -11,7 +11,7 @@ French and English are supported.
 
 Work in progress. Milestones, in order:
 
-1. Transcription — audio in, timestamped transcript out (in progress)
+1. Transcription — audio in, timestamped transcript out (done)
 2. Speaker diarization — who spoke when
 3. Structured summary — topics, decisions, action items, open questions
 4. Voice output — read the summary aloud with a local TTS engine
@@ -23,6 +23,33 @@ Work in progress. Milestones, in order:
 python -m venv .venv
 .venv\Scripts\activate        # Windows
 pip install -r requirements.txt
+```
+
+## Usage
+
+```bash
+python -m speech_to_notes recording.mp3
+```
+
+Writes two files to `output/`:
+
+- `recording.txt` — one line per segment, `[MM:SS] text`, for people to read
+- `recording.json` — every segment and word with start/end times, kept so
+  later stages (speaker diarization) can reuse the transcript instead of
+  recomputing it
+
+Options: `--model tiny|base|small|medium` (default `small`), `--language fr`
+(default: auto-detect), `--output-dir`.
+
+Example on a 12 s French recording:
+
+```
+$ python -m speech_to_notes samples/sample_fr.wav
+Loaded samples/sample_fr.wav (11.7 s). Transcribing with 'small'...
+Done in 4.1 s (RTF 0.35). 1 segment(s) -> output/sample_fr.txt / .json
+
+$ cat output/sample_fr.txt
+[00:01] Rendez-vous le 14 à 15h30 avec monsieur Lefebvre, budget 2300€.
 ```
 
 ## Design decisions
