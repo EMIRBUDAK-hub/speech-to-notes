@@ -70,6 +70,8 @@ def assign_speakers(words: list[Word], turns: list[Turn]) -> list[tuple[Word, st
             # Rule 4 lands here too: a zero-duration word (start == end, a Whisper
             # artifact) has overlap 0 with every turn, but its distance to the
             # turn that contains it is 0, so the nearest turn still claims it.
+            # In short: a word without duration has no overlap, but it has a
+            # distance, and the distance is what saves it.
             nearest = min(kept, key=lambda t: distance(word, t))
             if distance(word, nearest) <= MAX_GAP:
                 speaker = nearest.speaker
@@ -81,4 +83,15 @@ def assign_speakers(words: list[Word], turns: list[Turn]) -> list[tuple[Word, st
 
 def group_utterances(labeled: list[tuple[Word, str]]) -> list[Utterance]:
     """Rule 5: merge consecutive words of the same speaker into utterances."""
-    raise NotImplementedError
+    utterances = []
+    current = None  # the utterance being built; None before the first word
+    for word, speaker in labeled:
+        if current is None or speaker != current.speaker:
+            # speaker change (or very first word): start a new line
+            current = Utterance(start=word.start, end=word.end, speaker=speaker, text=word.text)
+            utterances.append(current)
+        else:
+            # same speaker: extend the current line
+            current.end = word.end
+            current.text += " " + word.text
+    return utterances
