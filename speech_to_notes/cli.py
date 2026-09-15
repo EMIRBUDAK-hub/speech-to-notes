@@ -5,7 +5,7 @@ import time
 from pathlib import Path
 
 from speech_to_notes.audio import SAMPLE_RATE, load_audio
-from speech_to_notes.output import save_json, save_text
+from speech_to_notes.output import save_json, save_speaker_text, save_text
 from speech_to_notes.transcribe import DEFAULT_MODEL_SIZE, transcribe
 
 
@@ -24,6 +24,10 @@ def build_parser() -> argparse.ArgumentParser:
         help="two-letter language code, e.g. fr or en (default: auto-detect)",
     )
     parser.add_argument(
+        "--diarize", action="store_true",
+        help="also identify who speaks when (slower; needs HF_TOKEN, see README)",
+    )
+    parser.add_argument(
         "--output-dir", default="output",
         help="folder where <audio name>.txt and .json are written (default: output/)",
     )
@@ -39,16 +43,35 @@ def main() -> None:
 
     t0 = time.perf_counter()
     segments = transcribe(audio, model_size=args.model, language=args.language)
-    elapsed = time.perf_counter() - t0
+    t_asr = time.perf_counter() - t0
+    print(f"  transcription: {t_asr:.1f} s (RTF {t_asr / duration:.2f}), {len(segments)} segment(s)")
 
     out_dir = Path(args.output_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
     stem = Path(args.audio).stem
-    save_text(segments, out_dir / f"{stem}.txt")
-    save_json(segments, out_dir / f"{stem}.json")
+    turns = None
 
-    print(f"Done in {elapsed:.1f} s (RTF {elapsed / duration:.2f}). "
-          f"{len(segments)} segment(s) -> {out_dir / stem}.txt / .json")
+    if args.diarize:
+        # imported here so the transcription-only path never loads torch/pyannote
+        from speech_to_notes.align import assign_speakers, group_utterances, mark_overlaps
+        from speech_to_notes.diarize import diarize
+
+        print("Diarizing...")
+        t0 = time.perf_counter()
+        turns = diarize(audio)
+        t_dia = time.perf_counter() - t0
+        speakers = sorted({t.speaker for t in turns})
+        print(f"  diarization: {t_dia:.1f} s (RTF {t_dia / duration:.2f}), {len(speakers)} speaker(s)")
+
+        words = [w for s in segments for w in s.words]
+        utterances = group_utterances(assign_speakers(words, turns))
+        mark_overlaps(utterances, turns)
+        save_speaker_text(utterances, out_dir / f"{stem}.txt")
+    else:
+        save_text(segments, out_dir / f"{stem}.txt")
+
+    save_json(segments, out_dir / f"{stem}.json", turns=turns)
+    print(f"Done -> {out_dir / stem}.txt / .json")
 
 
 if __name__ == "__main__":
