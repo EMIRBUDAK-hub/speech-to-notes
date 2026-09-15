@@ -19,11 +19,21 @@ Work in progress. Milestones, in order:
 
 ## Setup
 
+Python 3.12 (PyTorch does not fully support 3.14 yet). On Windows, use WSL
+(Ubuntu): Smart App Control blocks the unsigned native libraries that PyTorch
+and PyAV ship, and it cannot be re-enabled once turned off, so a Linux
+environment is the safer choice.
+
 ```bash
-python -m venv .venv
-.venv\Scripts\activate        # Windows
+python3.12 -m venv .venv
+source .venv/bin/activate
+pip install --index-url https://download.pytorch.org/whl/cpu torch torchaudio torchcodec
 pip install -r requirements.txt
 ```
+
+Speaker diarization (milestone 2) uses pyannote models gated on Hugging Face:
+accept the terms of `pyannote/speaker-diarization-3.1` and
+`pyannote/segmentation-3.0`, create a read token, and export it as `HF_TOKEN`.
 
 ## Usage
 
