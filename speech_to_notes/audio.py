@@ -29,4 +29,12 @@ def load_audio(path: str) -> np.ndarray:
 
     # decode_audio handles the container/codec (mp3, wav, ...) via PyAV and
     # resamples to SAMPLE_RATE, mono, float32 in [-1, 1].
-    return decode_audio(str(audio_path), sampling_rate=SAMPLE_RATE)
+
+    audio = decode_audio(str(audio_path), sampling_rate=SAMPLE_RATE)
+    peak = np.abs(audio).max()
+    # Normalise so the loudest sample sits at 0.9: quiet recordings (phone
+    # audio) otherwise push Whisper into a loop of empty segments.
+    if peak > 0:
+        audio = audio / peak * 0.9
+
+    return audio

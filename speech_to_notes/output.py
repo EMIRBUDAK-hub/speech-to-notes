@@ -9,9 +9,9 @@ from speech_to_notes.transcribe import Segment
 
 def format_timestamp(seconds: float) -> str:
     """Turn a time in seconds into "MM:SS" (e.g. 75.3 -> "01:15")."""
-    minutes = int(seconds // 60)        # étape 1 : division entière par 60, converti en entier
-    secs = int(seconds % 60)             # étape 2 : reste de la division par 60, converti en entier
-    return f"{minutes:02d}:{secs:02d}"           # étape 3 : la chaîne "MM:SS"
+    minutes = int(seconds // 60)        # 1 : division entière par 60, converti en entier
+    secs = int(seconds % 60)             # 2 : reste de la division par 60, converti en entier
+    return f"{minutes:02d}:{secs:02d}"           # 3 : la chaîne "MM:SS"
 
 def save_text(segments: list[Segment], path: str) -> None:
     """Write one line per segment: "[MM:SS] text"."""

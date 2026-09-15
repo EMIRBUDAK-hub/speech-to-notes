@@ -93,4 +93,13 @@ Whisper models are pre-trained by OpenAI; this project only runs inference.
 
 ## Known limitations
 
-To be written honestly as the project progresses.
+- **Quiet or phone-quality audio.** On a real 8 kHz emergency-call recording
+  (Simsamu corpus), the first version produced only empty segments: Whisper
+  conditions each 30 s window on the previous output, and a silent, very quiet
+  first window sent it into a loop of "." segments. Two fixes are in place:
+  peak normalisation in `load_audio` and Silero VAD (`vad_filter=True`) in
+  `transcribe`. Normalisation is naive: a single loud transient (a door slam)
+  would set the peak and leave speech quiet.
+- **Rare words on degraded audio.** On the same phone-quality recording,
+  "docteur Damani" comes out as "deux pères de vanille". Proper nouns are the
+  first casualty; see the model-size section.
