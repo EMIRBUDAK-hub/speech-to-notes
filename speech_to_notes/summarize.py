@@ -13,7 +13,9 @@ from pathlib import Path
 
 SUMMARY_KEYS = ("topics", "decisions", "action_items", "open_questions")
 
-DEFAULT_LOCAL_MODEL = Path.home() / ".cache/speech-to-notes/llm/Qwen3-4B-Instruct-2507.Q4_K_M.gguf"
+# Chosen over Qwen3-4B on a real transcript: slower, but it found the decision,
+# the action and the open question a human noted; Qwen missed the decision.
+DEFAULT_LOCAL_MODEL = Path.home() / ".cache/speech-to-notes/llm/Mistral-7B-Instruct-v0.3.Q4_K_M.gguf"
 DEFAULT_API_MODEL = "mistral-small-latest"
 
 

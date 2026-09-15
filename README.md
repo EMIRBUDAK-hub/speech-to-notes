@@ -13,7 +13,7 @@ Work in progress. Milestones, in order:
 
 1. Transcription — audio in, timestamped transcript out (done)
 2. Speaker diarization — who spoke when (done)
-3. Structured summary — topics, decisions, action items, open questions
+3. Structured summary — topics, decisions, action items, open questions (done, API comparison pending)
 4. Voice output — read the summary aloud with a local TTS engine
 5. Polish — clean CLI, examples, known limitations
 
@@ -30,6 +30,17 @@ source .venv/bin/activate
 pip install --index-url https://download.pytorch.org/whl/cpu torch torchaudio torchcodec
 pip install -r requirements.txt
 ```
+
+The structured summary (`--summarize local`) needs a GGUF model on disk:
+
+```bash
+mkdir -p ~/.cache/speech-to-notes/llm && cd ~/.cache/speech-to-notes/llm
+curl -LO https://huggingface.co/MaziyarPanahi/Mistral-7B-Instruct-v0.3-GGUF/resolve/main/Mistral-7B-Instruct-v0.3.Q4_K_M.gguf
+```
+
+`--summarize api` calls Mistral's hosted API instead: create a key on
+console.mistral.ai (the free "Experiment" plan is enough) and export it as
+`MISTRAL_API_KEY`.
 
 Speaker diarization (`--diarize`) uses pyannote models gated on Hugging Face:
 accept the terms of `pyannote/speaker-diarization-community-1` (and, for
@@ -66,6 +77,19 @@ the reader knows where to listen:
 
 Speaker labels are cluster ids, not identities: the model cannot know who is
 the doctor and who is the patient, only that there are two voices.
+
+With `--summarize local` (or `api`), a third file `<name>.summary.md` holds
+four fixed lists — topics, decisions, action items, open questions — with
+`(none)` where the conversation had nothing to offer. On the same call:
+
+```
+## Decisions
+- l'individu doit aller à l'hôpital
+## Action items
+- la fille doit conduire la personne malade à l'hôpital
+## Open questions
+- est-ce que la personne a déjà eu des problèmes de santé cardiaques?
+```
 
 Example on a 12 s French recording:
 
@@ -156,6 +180,47 @@ or inside overlapped speech. Rule 7 does not change that figure (it fixed one
 word and broke one); it removes one-word lines that were almost always
 boundary errors (15 → 9 lines) and is kept for readability only.
 
+### Structured summary: a JSON form, two engines, and no trust in the reply
+
+"Structured" means four short lists in fixed boxes, never prose. The model is
+shown the empty JSON form and asked to fill it; empty lists are valid, because
+a model that invents items to fill a box is worse than an empty box.
+
+Two engines sit behind one interface (prompt in, text out), so everything
+else — prompt, parsing, validation, retry — is written once:
+
+- **local** (default): a 4-bit GGUF model run on CPU through `llama-cpp-python`,
+  inside the process, no server to install. Chosen over Ollama (a separate
+  service) and `transformers` (slower and hungrier on CPU for the same model).
+- **api**: Mistral's hosted API. Faster and stronger, but the transcript leaves
+  the machine and the free plan lets Mistral train on it — so local stays the
+  default and the API is opt-in, chosen by the user according to how
+  confidential the meeting is.
+
+The reply is never trusted as is: it is parsed as JSON, checked key by key
+(exactly the four keys, each a list of strings), and on failure the error
+message is sent back to the model once; if it still fails, the raw reply is
+kept in the summary file and nothing is faked. Both engines use the JSON
+output mode, and on every run so far the first reply was already valid.
+
+Local model chosen on one real transcript (Simsamu, 277 words), against notes
+written by hand first:
+
+| model | size | time | found the decision | found the action | open question |
+|-------|------|------|--------------------|------------------|---------------|
+| Qwen3-4B-Instruct-2507 | 2.5 GB | 47 s | no (filed as an action) | roughly | one of two |
+| Mistral-7B-Instruct-v0.3 | 4.4 GB | 49–76 s | yes | yes, precisely | yes |
+
+Mistral-7B is the default: in offline use the extra 30 s cost nothing, a
+missed decision costs everything. One transcript is a thin basis; the
+comparison will be re-run when a second annotated recording is available.
+
+A lesson learnt on the way: Mistral-7B kept answering in English to an
+English prompt that said "write in the language of the transcript", and
+even to "write every item in French". Small models follow the language the
+instructions are *written in* more than instructions *about* language, so the
+prompt now ends with a reminder written in the target language.
+
 ## Known limitations
 
 - **Quiet or phone-quality audio.** On a real 8 kHz emergency-call recording
@@ -181,6 +246,12 @@ boundary errors (15 → 9 lines) and is kept for readability only.
   the same file, so a one-hour meeting can take from 30 to 70 minutes.
 - **Tested on two speakers only** so far. Three or more voices, and long
   meetings, have not been checked.
+- **The summary can slip in inferences.** On a one-line test ("rendez-vous
+  avec Monsieur Lefebvre"), the local model wrote "Monsieur Lefebvre must go to
+  the meeting" — plausible, not in the text. Topics can also be merged into one
+  long item. The summary is a reading aid, not a record.
+- **Summary quality is bounded by the transcript.** "docteur Damani" became
+  "deux pères de la vanille" upstream; no summary step recovers that.
 - **Not bit-for-bit reproducible across exports.** The same recording exported
   as .wav and as .m4a gave two transcripts with the same meaning but different
   wording in places, and one of them dropped a quiet 45 s passage (VAD
