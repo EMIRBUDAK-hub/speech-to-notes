@@ -14,7 +14,7 @@ Rules (decided on real data, see notes and README):
      overlap marker after the utterance it falls in.
 """
 
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 
 from speech_to_notes.diarize import Turn
 from speech_to_notes.transcribe import Word
@@ -26,12 +26,18 @@ UNKNOWN = "UNKNOWN"
 
 @dataclass
 class Utterance:
-    """One line of the final transcript: who said what, from when to when."""
+    """One line of the final transcript: who said what, from when to when.
+
+    ``overlaps`` lists other speakers' turns that happened *during* this
+    utterance (rule 6): their words are not in the transcript, but the reader
+    should know someone else spoke and where to listen.
+    """
 
     start: float
     end: float
     speaker: str
     text: str
+    overlaps: list[Turn] = field(default_factory=list)
 
 
 def overlap(word: Word, turn: Turn) -> float:
@@ -95,3 +101,19 @@ def group_utterances(labeled: list[tuple[Word, str]]) -> list[Utterance]:
             current.end = word.end
             current.text += " " + word.text
     return utterances
+
+
+def mark_overlaps(utterances: list[Utterance], turns: list[Turn]) -> None:
+    """Rule 6: attach turns that happen inside another speaker's turn to the
+    utterance they fall in. Modifies the utterances in place."""
+    kept = [t for t in turns if t.duration >= MIN_TURN_DURATION]
+    for t in kept:
+        for u in kept:
+            # t entirely inside u, and u belongs to someone else
+            if u.speaker != t.speaker and u.start <= t.start and t.end <= u.end:
+                # find the utterance during which t starts and attach t to it
+                for utt in utterances:
+                    if utt.start <= t.start <= utt.end:
+                        utt.overlaps.append(t)
+                        break
+                break
