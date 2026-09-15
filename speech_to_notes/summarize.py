@@ -16,7 +16,6 @@ SUMMARY_KEYS = ("topics", "decisions", "action_items", "open_questions")
 # Chosen over Qwen3-4B on a real transcript: slower, but it found the decision,
 # the action and the open question a human noted; Qwen missed the decision.
 DEFAULT_LOCAL_MODEL = Path.home() / ".cache/speech-to-notes/llm/Mistral-7B-Instruct-v0.3.Q4_K_M.gguf"
-DEFAULT_API_MODEL = "mistral-small-latest"
 
 
 @dataclass
@@ -99,23 +98,33 @@ class LocalEngine:
         return self.last_reply
 
 
-class MistralEngine:
-    """Mistral's hosted API (OpenAI-compatible chat endpoint). Needs MISTRAL_API_KEY."""
+class ApiEngine:
+    """A hosted model behind an OpenAI-compatible chat endpoint (Groq, Mistral,
+    ...). The provider is a setting, not a class: URL, model, and the name of
+    the environment variable that holds the key."""
 
-    def __init__(self, model: str = DEFAULT_API_MODEL):
-        self.name = model
-        self._key = os.environ.get("MISTRAL_API_KEY")
+    PROVIDERS = {
+        "groq": ("https://api.groq.com/openai/v1/chat/completions", "openai/gpt-oss-120b", "GROQ_API_KEY"),
+        "mistral": ("https://api.mistral.ai/v1/chat/completions", "mistral-small-latest", "MISTRAL_API_KEY"),
+    }
+
+    def __init__(self, provider: str = "groq", model: str | None = None):
+        url, default_model, key_env = self.PROVIDERS[provider]
+        self._url = url
+        self.name = f"{provider}:{model or default_model}"
+        self._model = model or default_model
+        self._key = os.environ.get(key_env)
         if not self._key:
-            raise RuntimeError("MISTRAL_API_KEY is not set; see README, 'Setup'")
+            raise RuntimeError(f"{key_env} is not set; see README, 'Setup'")
 
     def complete(self, prompt: str) -> str:
         import requests  # imported here: the local path never needs it
 
         r = requests.post(
-            "https://api.mistral.ai/v1/chat/completions",
+            self._url,
             headers={"Authorization": f"Bearer {self._key}"},
             json={
-                "model": self.name,
+                "model": self._model,
                 "messages": [{"role": "user", "content": prompt}],
                 "response_format": {"type": "json_object"},
                 "temperature": 0.0,

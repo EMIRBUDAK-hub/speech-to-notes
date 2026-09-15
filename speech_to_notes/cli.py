@@ -30,7 +30,11 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "--summarize", choices=["local", "api"], default=None,
         help="also write a structured summary: 'local' runs a GGUF model on CPU, "
-             "'api' calls Mistral (needs MISTRAL_API_KEY)",
+             "'api' calls a hosted model (see --api-provider)",
+    )
+    parser.add_argument(
+        "--api-provider", choices=["groq", "mistral"], default="groq",
+        help="hosted provider for --summarize api; needs GROQ_API_KEY or MISTRAL_API_KEY (default: groq)",
     )
     parser.add_argument(
         "--output-dir", default="output",
@@ -78,11 +82,11 @@ def main() -> None:
 
     summary = None
     if args.summarize:
-        from speech_to_notes.summarize import LocalEngine, MistralEngine, summarize
+        from speech_to_notes.summarize import ApiEngine, LocalEngine, summarize
 
         print(f"Summarizing with '{args.summarize}'...")
         t0 = time.perf_counter()
-        engine = LocalEngine() if args.summarize == "local" else MistralEngine()
+        engine = LocalEngine() if args.summarize == "local" else ApiEngine(args.api_provider)
         transcript_text = (out_dir / f"{stem}.txt").read_text(encoding="utf-8")
         summary = summarize(transcript_text, engine, language=language)
         t_sum = time.perf_counter() - t0

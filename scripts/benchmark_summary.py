@@ -3,7 +3,7 @@
 Not part of the pipeline: prints each engine's time and its four lists, so the
 default engine is chosen against a hand-written reference rather than guessed.
 
-Usage: python scripts/benchmark_summary.py output/simsamu_douleur_thoracique.txt [qwen mistral7b api]
+Usage: python scripts/benchmark_summary.py output/simsamu_douleur_thoracique.txt [qwen mistral7b groq mistral]
 """
 
 import os
@@ -13,13 +13,14 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from speech_to_notes.summarize import LocalEngine, MistralEngine, build_prompt, parse_summary, summarize
+from speech_to_notes.summarize import ApiEngine, LocalEngine, build_prompt, parse_summary, summarize
 
 LLM_DIR = Path.home() / ".cache/speech-to-notes/llm"
 ENGINES = {
     "qwen": lambda: LocalEngine(LLM_DIR / "Qwen3-4B-Instruct-2507.Q4_K_M.gguf"),
     "mistral7b": lambda: LocalEngine(LLM_DIR / "Mistral-7B-Instruct-v0.3.Q4_K_M.gguf"),
-    "api": lambda: MistralEngine(),
+    "groq": lambda: ApiEngine("groq"),
+    "mistral": lambda: ApiEngine("mistral"),
 }
 
 
