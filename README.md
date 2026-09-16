@@ -14,7 +14,7 @@ Work in progress. Milestones, in order:
 1. Transcription — audio in, timestamped transcript out (done)
 2. Speaker diarization — who spoke when (done)
 3. Structured summary — topics, decisions, action items, open questions (done)
-4. Voice output — read the summary aloud with a local TTS engine
+4. Voice output — read the summary aloud with a local TTS engine (done)
 5. Polish — clean CLI, examples, known limitations
 
 ## Setup
@@ -44,6 +44,15 @@ console.groq.com and export it as `GROQ_API_KEY`. `--api-provider mistral`
 uses Mistral's API with `MISTRAL_API_KEY` (their free plan was not available
 when this was written, so that path is implemented but untested).
 
+Voice output (`--speak`) needs a Piper voice per language (60 MB each):
+
+```bash
+mkdir -p ~/.cache/speech-to-notes/tts && cd ~/.cache/speech-to-notes/tts
+base=https://huggingface.co/rhasspy/piper-voices/resolve/main
+curl -LO $base/fr/fr_FR/siwis/medium/fr_FR-siwis-medium.onnx -LO $base/fr/fr_FR/siwis/medium/fr_FR-siwis-medium.onnx.json
+curl -LO $base/en/en_US/lessac/medium/en_US-lessac-medium.onnx -LO $base/en/en_US/lessac/medium/en_US-lessac-medium.onnx.json
+```
+
 Speaker diarization (`--diarize`) uses pyannote models gated on Hugging Face:
 accept the terms of `pyannote/speaker-diarization-community-1` (and, for
 older pyannote versions, `speaker-diarization-3.1` and `segmentation-3.0`),
@@ -64,7 +73,13 @@ Writes two files to `output/`:
 
 Options: `--model tiny|base|small|medium` (default `small`), `--language fr`
 (default: auto-detect), `--diarize` (who speaks when; slower, needs `HF_TOKEN`),
-`--output-dir`.
+`--summarize local|api`, `--speak` (read the summary aloud), `--output-dir`.
+
+The whole pipeline, audio in and audio out:
+
+```bash
+python -m speech_to_notes meeting.mp3 --diarize --summarize local --speak
+```
 
 With `--diarize`, the `.txt` has one line per speaker turn, and a marker
 whenever the diarization model heard someone else speak *during* a line —
@@ -228,6 +243,20 @@ English prompt that said "write in the language of the transcript", and
 even to "write every item in French". Small models follow the language the
 instructions are *written in* more than instructions *about* language, so the
 prompt now ends with a reminder written in the target language.
+
+### Voice output: Piper, and punctuation for the ear
+
+The summary is read by Piper, a small ONNX text-to-speech engine that runs on
+CPU with no server and no PyTorch, one 60 MB voice per language (French and
+English here). Kokoro sounds better but needs `espeak-ng` installed
+system-wide; `espeak-ng` alone sounds robotic. Piper was the "no dependencies"
+choice.
+
+What the voice says is built from the four lists, not from the Markdown: each
+heading is announced as a word, each item becomes one sentence, an empty
+list is read as "aucune"/"none" rather than skipped in silence. Every heading
+ends with a full stop because that is where the voice pauses — punctuation
+for the ear. 19 s of French audio takes about 1.4 s to generate.
 
 ## Known limitations
 

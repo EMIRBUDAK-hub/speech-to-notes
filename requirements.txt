@@ -3,3 +3,6 @@
 #   pip install -r requirements.txt
 faster-whisper==1.2.1
 pyannote.audio==4.0.7
+piper-tts
+llama-cpp-python
+requests

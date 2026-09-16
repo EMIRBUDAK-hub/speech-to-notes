@@ -37,6 +37,10 @@ def build_parser() -> argparse.ArgumentParser:
         help="hosted provider for --summarize api; needs GROQ_API_KEY or MISTRAL_API_KEY (default: groq)",
     )
     parser.add_argument(
+        "--speak", action="store_true",
+        help="also read the summary aloud into <audio name>.summary.wav (needs --summarize)",
+    )
+    parser.add_argument(
         "--output-dir", default="output",
         help="folder where <audio name>.txt and .json are written (default: output/)",
     )
@@ -45,6 +49,8 @@ def build_parser() -> argparse.ArgumentParser:
 
 def main() -> None:
     args = build_parser().parse_args()
+    if args.speak and not args.summarize:
+        build_parser().error("--speak needs --summarize (there is nothing to read otherwise)")
 
     audio = load_audio(args.audio)
     duration = len(audio) / SAMPLE_RATE
@@ -95,8 +101,16 @@ def main() -> None:
         save_summary(summary, out_dir / f"{stem}.summary.md", engine.name,
                      raw_reply=None if summary is not None else engine.last_reply)
 
+        if args.speak and summary is not None:
+            from speech_to_notes.speak import summary_to_speech, synthesize
+
+            t0 = time.perf_counter()
+            wav = synthesize(summary_to_speech(summary, language), language, out_dir / f"{stem}.summary.wav")
+            print(f"  speech: {time.perf_counter() - t0:.1f} s -> {wav}")
+
     save_json(segments, out_dir / f"{stem}.json", language=language, turns=turns, summary=summary)
-    print(f"Done -> {out_dir / stem}.txt / .json" + (f" / .summary.md" if args.summarize else ""))
+    extras = (" / .summary.md" if args.summarize else "") + (" / .summary.wav" if args.speak else "")
+    print(f"Done -> {out_dir / stem}.txt / .json{extras}")
 
 
 if __name__ == "__main__":
