@@ -1,0 +1,1972 @@
+{
+  "language": "fr",
+  "segments": [
+    {
+      "start": 2.26,
+      "end": 11.42,
+      "text": "Oui, bonjour madame. Je suis deux pères de la vanille, mais c'est un régulateur qui nous a fait pour votre mère qui a une douleur dans la poitrine, c'est bien ça ?",
+      "words": [
+        {
+          "start": 2.26,
+          "end": 2.76,
+          "text": "Oui,"
+        },
+        {
+          "start": 2.94,
+          "end": 3.06,
+          "text": "bonjour"
+        },
+        {
+          "start": 3.06,
+          "end": 3.44,
+          "text": "madame."
+        },
+        {
+          "start": 4.44,
+          "end": 4.72,
+          "text": "Je"
+        },
+        {
+          "start": 4.72,
+          "end": 4.8,
+          "text": "suis"
+        },
+        {
+          "start": 4.8,
+          "end": 4.94,
+          "text": "deux"
+        },
+        {
+          "start": 4.94,
+          "end": 5.1,
+          "text": "pères"
+        },
+        {
+          "start": 5.1,
+          "end": 5.26,
+          "text": "de"
+        },
+        {
+          "start": 5.26,
+          "end": 5.32,
+          "text": "la"
+        },
+        {
+          "start": 5.32,
+          "end": 5.64,
+          "text": "vanille,"
+        },
+        {
+          "start": 5.74,
+          "end": 5.86,
+          "text": "mais"
+        },
+        {
+          "start": 5.86,
+          "end": 5.98,
+          "text": "c"
+        },
+        {
+          "start": 5.98,
+          "end": 5.98,
+          "text": "'est"
+        },
+        {
+          "start": 5.98,
+          "end": 6.06,
+          "text": "un"
+        },
+        {
+          "start": 6.06,
+          "end": 6.66,
+          "text": "régulateur"
+        },
+        {
+          "start": 6.66,
+          "end": 6.82,
+          "text": "qui"
+        },
+        {
+          "start": 6.82,
+          "end": 6.9,
+          "text": "nous"
+        },
+        {
+          "start": 6.9,
+          "end": 7.02,
+          "text": "a"
+        },
+        {
+          "start": 7.02,
+          "end": 7.14,
+          "text": "fait"
+        },
+        {
+          "start": 7.14,
+          "end": 7.34,
+          "text": "pour"
+        },
+        {
+          "start": 7.34,
+          "end": 7.6,
+          "text": "votre"
+        },
+        {
+          "start": 7.6,
+          "end": 7.92,
+          "text": "mère"
+        },
+        {
+          "start": 7.92,
+          "end": 8.28,
+          "text": "qui"
+        },
+        {
+          "start": 8.28,
+          "end": 8.68,
+          "text": "a"
+        },
+        {
+          "start": 8.68,
+          "end": 8.78,
+          "text": "une"
+        },
+        {
+          "start": 8.78,
+          "end": 9.1,
+          "text": "douleur"
+        },
+        {
+          "start": 9.1,
+          "end": 9.4,
+          "text": "dans"
+        },
+        {
+          "start": 9.4,
+          "end": 9.52,
+          "text": "la"
+        },
+        {
+          "start": 9.52,
+          "end": 9.9,
+          "text": "poitrine,"
+        },
+        {
+          "start": 10.02,
+          "end": 10.06,
+          "text": "c"
+        },
+        {
+          "start": 10.06,
+          "end": 10.06,
+          "text": "'est"
+        },
+        {
+          "start": 10.06,
+          "end": 10.2,
+          "text": "bien"
+        },
+        {
+          "start": 10.2,
+          "end": 10.4,
+          "text": "ça"
+        },
+        {
+          "start": 10.4,
+          "end": 11.42,
+          "text": "?"
+        }
+      ]
+    },
+    {
+      "start": 11.42,
+      "end": 12.24,
+      "text": "Oui, c'est ça.",
+      "words": [
+        {
+          "start": 11.42,
+          "end": 11.72,
+          "text": "Oui,"
+        },
+        {
+          "start": 11.72,
+          "end": 12.02,
+          "text": "c"
+        },
+        {
+          "start": 12.02,
+          "end": 12.04,
+          "text": "'est"
+        },
+        {
+          "start": 12.04,
+          "end": 12.24,
+          "text": "ça."
+        }
+      ]
+    },
+    {
+      "start": 14.02,
+      "end": 15.62,
+      "text": "C'est la première fois que celle-là arrive ?",
+      "words": [
+        {
+          "start": 14.02,
+          "end": 14.16,
+          "text": "C"
+        },
+        {
+          "start": 14.16,
+          "end": 14.16,
+          "text": "'est"
+        },
+        {
+          "start": 14.16,
+          "end": 14.3,
+          "text": "la"
+        },
+        {
+          "start": 14.3,
+          "end": 14.44,
+          "text": "première"
+        },
+        {
+          "start": 14.44,
+          "end": 14.64,
+          "text": "fois"
+        },
+        {
+          "start": 14.64,
+          "end": 14.76,
+          "text": "que"
+        },
+        {
+          "start": 14.76,
+          "end": 14.82,
+          "text": "celle"
+        },
+        {
+          "start": 14.82,
+          "end": 14.94,
+          "text": "-là"
+        },
+        {
+          "start": 14.94,
+          "end": 15.2,
+          "text": "arrive"
+        },
+        {
+          "start": 15.2,
+          "end": 15.62,
+          "text": "?"
+        }
+      ]
+    },
+    {
+      "start": 21.06,
+      "end": 36.14,
+      "text": "Non, elle l'a mal depuis qu'en 15-20 minutes.",
+      "words": [
+        {
+          "start": 21.06,
+          "end": 21.24,
+          "text": "Non,"
+        },
+        {
+          "start": 21.76,
+          "end": 21.94,
+          "text": "elle"
+        },
+        {
+          "start": 21.94,
+          "end": 22.66,
+          "text": "l"
+        },
+        {
+          "start": 22.66,
+          "end": 22.68,
+          "text": "'a"
+        },
+        {
+          "start": 22.68,
+          "end": 22.84,
+          "text": "mal"
+        },
+        {
+          "start": 22.84,
+          "end": 23.1,
+          "text": "depuis"
+        },
+        {
+          "start": 23.1,
+          "end": 23.36,
+          "text": "qu"
+        },
+        {
+          "start": 23.36,
+          "end": 23.48,
+          "text": "'en"
+        },
+        {
+          "start": 23.48,
+          "end": 24.14,
+          "text": "15"
+        },
+        {
+          "start": 35.5,
+          "end": 35.82,
+          "text": "-20"
+        },
+        {
+          "start": 35.82,
+          "end": 36.14,
+          "text": "minutes."
+        }
+      ]
+    },
+    {
+      "start": 37.92,
+      "end": 39.64,
+      "text": "Et vous m'avez dit que c'était la...",
+      "words": [
+        {
+          "start": 37.92,
+          "end": 38.32,
+          "text": "Et"
+        },
+        {
+          "start": 38.32,
+          "end": 38.72,
+          "text": "vous"
+        },
+        {
+          "start": 38.72,
+          "end": 38.98,
+          "text": "m"
+        },
+        {
+          "start": 38.98,
+          "end": 39.02,
+          "text": "'avez"
+        },
+        {
+          "start": 39.02,
+          "end": 39.2,
+          "text": "dit"
+        },
+        {
+          "start": 39.2,
+          "end": 39.44,
+          "text": "que"
+        },
+        {
+          "start": 39.44,
+          "end": 39.44,
+          "text": "c"
+        },
+        {
+          "start": 39.44,
+          "end": 39.44,
+          "text": "'était"
+        },
+        {
+          "start": 39.44,
+          "end": 39.64,
+          "text": "la..."
+        }
+      ]
+    },
+    {
+      "start": 40.68,
+      "end": 42.38,
+      "text": "Vous êtes avec elle, actuellement.",
+      "words": [
+        {
+          "start": 40.68,
+          "end": 40.84,
+          "text": "Vous"
+        },
+        {
+          "start": 40.84,
+          "end": 41.42,
+          "text": "êtes"
+        },
+        {
+          "start": 41.42,
+          "end": 41.6,
+          "text": "avec"
+        },
+        {
+          "start": 41.6,
+          "end": 41.86,
+          "text": "elle,"
+        },
+        {
+          "start": 41.94,
+          "end": 42.38,
+          "text": "actuellement."
+        }
+      ]
+    },
+    {
+      "start": 46.76,
+      "end": 51.43,
+      "text": "Elle est en sueur, d'accord ?",
+      "words": [
+        {
+          "start": 46.76,
+          "end": 47.16,
+          "text": "Elle"
+        },
+        {
+          "start": 47.16,
+          "end": 47.56,
+          "text": "est"
+        },
+        {
+          "start": 47.56,
+          "end": 47.68,
+          "text": "en"
+        },
+        {
+          "start": 47.68,
+          "end": 48.12,
+          "text": "sueur,"
+        },
+        {
+          "start": 51.01,
+          "end": 51.13,
+          "text": "d"
+        },
+        {
+          "start": 51.13,
+          "end": 51.23,
+          "text": "'accord"
+        },
+        {
+          "start": 51.23,
+          "end": 51.43,
+          "text": "?"
+        }
+      ]
+    },
+    {
+      "start": 51.43,
+      "end": 54.47,
+      "text": "Elle vous décrit quel type de douleur ?",
+      "words": [
+        {
+          "start": 51.43,
+          "end": 51.53,
+          "text": "Elle"
+        },
+        {
+          "start": 51.53,
+          "end": 51.67,
+          "text": "vous"
+        },
+        {
+          "start": 51.67,
+          "end": 51.99,
+          "text": "décrit"
+        },
+        {
+          "start": 51.99,
+          "end": 52.27,
+          "text": "quel"
+        },
+        {
+          "start": 52.27,
+          "end": 52.47,
+          "text": "type"
+        },
+        {
+          "start": 52.47,
+          "end": 53.61,
+          "text": "de"
+        },
+        {
+          "start": 53.61,
+          "end": 54.03,
+          "text": "douleur"
+        },
+        {
+          "start": 54.03,
+          "end": 54.47,
+          "text": "?"
+        }
+      ]
+    },
+    {
+      "start": 62.44,
+      "end": 63.64,
+      "text": "C'est un poids.",
+      "words": [
+        {
+          "start": 62.44,
+          "end": 62.76,
+          "text": "C"
+        },
+        {
+          "start": 62.76,
+          "end": 62.82,
+          "text": "'est"
+        },
+        {
+          "start": 62.82,
+          "end": 63.1,
+          "text": "un"
+        },
+        {
+          "start": 63.1,
+          "end": 63.64,
+          "text": "poids."
+        }
+      ]
+    },
+    {
+      "start": 75.44,
+      "end": 77.6,
+      "text": "Mais justement, en parlant...",
+      "words": [
+        {
+          "start": 75.44,
+          "end": 75.84,
+          "text": "Mais"
+        },
+        {
+          "start": 75.84,
+          "end": 76.24,
+          "text": "justement,"
+        },
+        {
+          "start": 76.78,
+          "end": 76.8,
+          "text": "en"
+        },
+        {
+          "start": 76.8,
+          "end": 77.6,
+          "text": "parlant..."
+        }
+      ]
+    },
+    {
+      "start": 85.7,
+      "end": 85.86,
+      "text": "Oui.",
+      "words": [
+        {
+          "start": 85.7,
+          "end": 85.86,
+          "text": "Oui."
+        }
+      ]
+    },
+    {
+      "start": 87.99,
+      "end": 90.33,
+      "text": "Elle a déjà un antécénant d'infarctus ?",
+      "words": [
+        {
+          "start": 87.99,
+          "end": 88.19,
+          "text": "Elle"
+        },
+        {
+          "start": 88.19,
+          "end": 88.63,
+          "text": "a"
+        },
+        {
+          "start": 88.63,
+          "end": 88.91,
+          "text": "déjà"
+        },
+        {
+          "start": 88.91,
+          "end": 89.13,
+          "text": "un"
+        },
+        {
+          "start": 89.13,
+          "end": 89.53,
+          "text": "antécénant"
+        },
+        {
+          "start": 89.53,
+          "end": 89.65,
+          "text": "d"
+        },
+        {
+          "start": 89.65,
+          "end": 90.03,
+          "text": "'infarctus"
+        },
+        {
+          "start": 90.03,
+          "end": 90.33,
+          "text": "?"
+        }
+      ]
+    },
+    {
+      "start": 93.12,
+      "end": 94.14,
+      "text": "Non, d'accord.",
+      "words": [
+        {
+          "start": 93.12,
+          "end": 93.48,
+          "text": "Non,"
+        },
+        {
+          "start": 93.8,
+          "end": 93.92,
+          "text": "d"
+        },
+        {
+          "start": 93.92,
+          "end": 94.14,
+          "text": "'accord."
+        }
+      ]
+    },
+    {
+      "start": 94.4,
+      "end": 111.62,
+      "text": "Est-ce que je pourrais lui parler pour voir comment elle a mal ?",
+      "words": [
+        {
+          "start": 94.4,
+          "end": 94.54,
+          "text": "Est"
+        },
+        {
+          "start": 94.54,
+          "end": 94.6,
+          "text": "-ce"
+        },
+        {
+          "start": 94.6,
+          "end": 94.66,
+          "text": "que"
+        },
+        {
+          "start": 94.66,
+          "end": 94.8,
+          "text": "je"
+        },
+        {
+          "start": 94.8,
+          "end": 94.9,
+          "text": "pourrais"
+        },
+        {
+          "start": 94.9,
+          "end": 95.04,
+          "text": "lui"
+        },
+        {
+          "start": 95.04,
+          "end": 95.52,
+          "text": "parler"
+        },
+        {
+          "start": 95.52,
+          "end": 96.08,
+          "text": "pour"
+        },
+        {
+          "start": 110.64,
+          "end": 110.82,
+          "text": "voir"
+        },
+        {
+          "start": 110.82,
+          "end": 111.04,
+          "text": "comment"
+        },
+        {
+          "start": 111.04,
+          "end": 111.22,
+          "text": "elle"
+        },
+        {
+          "start": 111.22,
+          "end": 111.34,
+          "text": "a"
+        },
+        {
+          "start": 111.34,
+          "end": 111.5,
+          "text": "mal"
+        },
+        {
+          "start": 111.5,
+          "end": 111.62,
+          "text": "?"
+        }
+      ]
+    },
+    {
+      "start": 111.62,
+      "end": 112.26,
+      "text": "Pas c'est l'amant.",
+      "words": [
+        {
+          "start": 111.62,
+          "end": 111.78,
+          "text": "Pas"
+        },
+        {
+          "start": 111.78,
+          "end": 111.94,
+          "text": "c"
+        },
+        {
+          "start": 111.94,
+          "end": 111.96,
+          "text": "'est"
+        },
+        {
+          "start": 111.96,
+          "end": 112.06,
+          "text": "l"
+        },
+        {
+          "start": 112.06,
+          "end": 112.26,
+          "text": "'amant."
+        }
+      ]
+    },
+    {
+      "start": 124.88,
+      "end": 125.66,
+      "text": "C'est un régulateur.",
+      "words": [
+        {
+          "start": 124.88,
+          "end": 124.98,
+          "text": "C"
+        },
+        {
+          "start": 124.98,
+          "end": 124.98,
+          "text": "'est"
+        },
+        {
+          "start": 124.98,
+          "end": 125.14,
+          "text": "un"
+        },
+        {
+          "start": 125.14,
+          "end": 125.66,
+          "text": "régulateur."
+        }
+      ]
+    },
+    {
+      "start": 126.28,
+      "end": 129.86,
+      "text": "Donc votre site vous a appelé parce que vous avez une douleur au niveau de la poitrine,",
+      "words": [
+        {
+          "start": 126.28,
+          "end": 126.28,
+          "text": "Donc"
+        },
+        {
+          "start": 126.28,
+          "end": 126.74,
+          "text": "votre"
+        },
+        {
+          "start": 126.74,
+          "end": 126.96,
+          "text": "site"
+        },
+        {
+          "start": 126.96,
+          "end": 127.12,
+          "text": "vous"
+        },
+        {
+          "start": 127.12,
+          "end": 127.24,
+          "text": "a"
+        },
+        {
+          "start": 127.24,
+          "end": 127.44,
+          "text": "appelé"
+        },
+        {
+          "start": 127.44,
+          "end": 127.58,
+          "text": "parce"
+        },
+        {
+          "start": 127.58,
+          "end": 127.74,
+          "text": "que"
+        },
+        {
+          "start": 127.74,
+          "end": 127.88,
+          "text": "vous"
+        },
+        {
+          "start": 127.88,
+          "end": 128.1,
+          "text": "avez"
+        },
+        {
+          "start": 128.1,
+          "end": 128.52,
+          "text": "une"
+        },
+        {
+          "start": 128.52,
+          "end": 128.96,
+          "text": "douleur"
+        },
+        {
+          "start": 128.96,
+          "end": 129.06,
+          "text": "au"
+        },
+        {
+          "start": 129.06,
+          "end": 129.18,
+          "text": "niveau"
+        },
+        {
+          "start": 129.18,
+          "end": 129.28,
+          "text": "de"
+        },
+        {
+          "start": 129.28,
+          "end": 129.38,
+          "text": "la"
+        },
+        {
+          "start": 129.38,
+          "end": 129.86,
+          "text": "poitrine,"
+        }
+      ]
+    },
+    {
+      "start": 131.68,
+      "end": 133.58,
+      "text": "qui a apparu depuis 15-20 minutes.",
+      "words": [
+        {
+          "start": 131.68,
+          "end": 132.02,
+          "text": "qui"
+        },
+        {
+          "start": 132.02,
+          "end": 132.2,
+          "text": "a"
+        },
+        {
+          "start": 132.2,
+          "end": 132.42,
+          "text": "apparu"
+        },
+        {
+          "start": 132.42,
+          "end": 132.7,
+          "text": "depuis"
+        },
+        {
+          "start": 132.7,
+          "end": 132.96,
+          "text": "15"
+        },
+        {
+          "start": 132.96,
+          "end": 133.2,
+          "text": "-20"
+        },
+        {
+          "start": 133.2,
+          "end": 133.58,
+          "text": "minutes."
+        }
+      ]
+    },
+    {
+      "start": 134.36,
+      "end": 136.6,
+      "text": "Est-ce que vous avez des problèmes de santé ?",
+      "words": [
+        {
+          "start": 134.36,
+          "end": 134.54,
+          "text": "Est"
+        },
+        {
+          "start": 134.54,
+          "end": 134.64,
+          "text": "-ce"
+        },
+        {
+          "start": 134.64,
+          "end": 134.7,
+          "text": "que"
+        },
+        {
+          "start": 134.7,
+          "end": 134.78,
+          "text": "vous"
+        },
+        {
+          "start": 134.78,
+          "end": 134.86,
+          "text": "avez"
+        },
+        {
+          "start": 134.86,
+          "end": 135.02,
+          "text": "des"
+        },
+        {
+          "start": 135.02,
+          "end": 135.36,
+          "text": "problèmes"
+        },
+        {
+          "start": 135.36,
+          "end": 135.66,
+          "text": "de"
+        },
+        {
+          "start": 135.66,
+          "end": 136.04,
+          "text": "santé"
+        },
+        {
+          "start": 136.04,
+          "end": 136.6,
+          "text": "?"
+        }
+      ]
+    },
+    {
+      "start": 143.0,
+      "end": 149.72,
+      "text": "Vous avez déjà fait un infarctus ?",
+      "words": [
+        {
+          "start": 143.0,
+          "end": 143.1,
+          "text": "Vous"
+        },
+        {
+          "start": 143.1,
+          "end": 143.26,
+          "text": "avez"
+        },
+        {
+          "start": 143.26,
+          "end": 143.6,
+          "text": "déjà"
+        },
+        {
+          "start": 143.6,
+          "end": 143.76,
+          "text": "fait"
+        },
+        {
+          "start": 143.76,
+          "end": 143.88,
+          "text": "un"
+        },
+        {
+          "start": 143.88,
+          "end": 144.54,
+          "text": "infarctus"
+        },
+        {
+          "start": 149.56,
+          "end": 149.72,
+          "text": "?"
+        }
+      ]
+    },
+    {
+      "start": 149.72,
+      "end": 151.8,
+      "text": "Et les affaires bouchées au niveau du coeur ?",
+      "words": [
+        {
+          "start": 149.72,
+          "end": 149.78,
+          "text": "Et"
+        },
+        {
+          "start": 149.78,
+          "end": 149.96,
+          "text": "les"
+        },
+        {
+          "start": 149.96,
+          "end": 150.24,
+          "text": "affaires"
+        },
+        {
+          "start": 150.24,
+          "end": 150.68,
+          "text": "bouchées"
+        },
+        {
+          "start": 150.68,
+          "end": 150.78,
+          "text": "au"
+        },
+        {
+          "start": 150.78,
+          "end": 150.92,
+          "text": "niveau"
+        },
+        {
+          "start": 150.92,
+          "end": 151.1,
+          "text": "du"
+        },
+        {
+          "start": 151.1,
+          "end": 151.34,
+          "text": "coeur"
+        },
+        {
+          "start": 151.34,
+          "end": 151.8,
+          "text": "?"
+        }
+      ]
+    },
+    {
+      "start": 151.8,
+      "end": 162.07,
+      "text": "Vous avez mal, donc ça fait 15 minutes.",
+      "words": [
+        {
+          "start": 151.8,
+          "end": 152.0,
+          "text": "Vous"
+        },
+        {
+          "start": 160.13,
+          "end": 160.31,
+          "text": "avez"
+        },
+        {
+          "start": 160.31,
+          "end": 160.79,
+          "text": "mal,"
+        },
+        {
+          "start": 161.15,
+          "end": 161.25,
+          "text": "donc"
+        },
+        {
+          "start": 161.25,
+          "end": 161.41,
+          "text": "ça"
+        },
+        {
+          "start": 161.41,
+          "end": 161.51,
+          "text": "fait"
+        },
+        {
+          "start": 161.51,
+          "end": 161.71,
+          "text": "15"
+        },
+        {
+          "start": 161.71,
+          "end": 162.07,
+          "text": "minutes."
+        }
+      ]
+    },
+    {
+      "start": 162.35,
+      "end": 164.93,
+      "text": "C'est toujours pas parti, la douleur n'est pas passée.",
+      "words": [
+        {
+          "start": 162.35,
+          "end": 162.39,
+          "text": "C"
+        },
+        {
+          "start": 162.39,
+          "end": 162.47,
+          "text": "'est"
+        },
+        {
+          "start": 162.47,
+          "end": 162.67,
+          "text": "toujours"
+        },
+        {
+          "start": 162.67,
+          "end": 162.85,
+          "text": "pas"
+        },
+        {
+          "start": 162.85,
+          "end": 163.31,
+          "text": "parti,"
+        },
+        {
+          "start": 163.55,
+          "end": 163.67,
+          "text": "la"
+        },
+        {
+          "start": 163.67,
+          "end": 163.95,
+          "text": "douleur"
+        },
+        {
+          "start": 163.95,
+          "end": 164.03,
+          "text": "n"
+        },
+        {
+          "start": 164.03,
+          "end": 164.41,
+          "text": "'est"
+        },
+        {
+          "start": 164.41,
+          "end": 164.59,
+          "text": "pas"
+        },
+        {
+          "start": 164.59,
+          "end": 164.93,
+          "text": "passée."
+        }
+      ]
+    },
+    {
+      "start": 165.73,
+      "end": 168.21,
+      "text": "Est-ce que ça sert au niveau de la poitrine ?",
+      "words": [
+        {
+          "start": 165.73,
+          "end": 166.05,
+          "text": "Est"
+        },
+        {
+          "start": 166.05,
+          "end": 166.17,
+          "text": "-ce"
+        },
+        {
+          "start": 166.17,
+          "end": 166.23,
+          "text": "que"
+        },
+        {
+          "start": 166.23,
+          "end": 166.37,
+          "text": "ça"
+        },
+        {
+          "start": 166.37,
+          "end": 166.71,
+          "text": "sert"
+        },
+        {
+          "start": 166.71,
+          "end": 166.83,
+          "text": "au"
+        },
+        {
+          "start": 166.83,
+          "end": 166.99,
+          "text": "niveau"
+        },
+        {
+          "start": 166.99,
+          "end": 167.13,
+          "text": "de"
+        },
+        {
+          "start": 167.13,
+          "end": 167.25,
+          "text": "la"
+        },
+        {
+          "start": 167.25,
+          "end": 167.69,
+          "text": "poitrine"
+        },
+        {
+          "start": 167.69,
+          "end": 168.21,
+          "text": "?"
+        }
+      ]
+    },
+    {
+      "start": 171.96,
+      "end": 242.77,
+      "text": "Plus ça pique pour l'amener à l'hôpital ?",
+      "words": [
+        {
+          "start": 171.96,
+          "end": 172.08,
+          "text": "Plus"
+        },
+        {
+          "start": 172.08,
+          "end": 172.42,
+          "text": "ça"
+        },
+        {
+          "start": 172.42,
+          "end": 172.78,
+          "text": "pique"
+        },
+        {
+          "start": 241.03,
+          "end": 241.45,
+          "text": "pour"
+        },
+        {
+          "start": 241.45,
+          "end": 241.59,
+          "text": "l"
+        },
+        {
+          "start": 241.59,
+          "end": 241.71,
+          "text": "'amener"
+        },
+        {
+          "start": 241.71,
+          "end": 241.79,
+          "text": "à"
+        },
+        {
+          "start": 241.79,
+          "end": 241.85,
+          "text": "l"
+        },
+        {
+          "start": 241.85,
+          "end": 242.01,
+          "text": "'hôpital"
+        },
+        {
+          "start": 242.01,
+          "end": 242.77,
+          "text": "?"
+        }
+      ]
+    },
+    {
+      "start": 242.77,
+      "end": 243.73,
+      "text": "Ah oui, mais oui, c'est ça.",
+      "words": [
+        {
+          "start": 242.77,
+          "end": 242.99,
+          "text": "Ah"
+        },
+        {
+          "start": 242.99,
+          "end": 243.17,
+          "text": "oui,"
+        },
+        {
+          "start": 243.27,
+          "end": 243.31,
+          "text": "mais"
+        },
+        {
+          "start": 243.31,
+          "end": 243.47,
+          "text": "oui,"
+        },
+        {
+          "start": 243.57,
+          "end": 243.59,
+          "text": "c"
+        },
+        {
+          "start": 243.59,
+          "end": 243.67,
+          "text": "'est"
+        },
+        {
+          "start": 243.67,
+          "end": 243.73,
+          "text": "ça."
+        }
+      ]
+    },
+    {
+      "start": 243.73,
+      "end": 244.89,
+      "text": "Et l'amener à l'hôpital ?",
+      "words": [
+        {
+          "start": 243.73,
+          "end": 243.85,
+          "text": "Et"
+        },
+        {
+          "start": 243.85,
+          "end": 243.93,
+          "text": "l"
+        },
+        {
+          "start": 243.93,
+          "end": 244.17,
+          "text": "'amener"
+        },
+        {
+          "start": 244.17,
+          "end": 244.31,
+          "text": "à"
+        },
+        {
+          "start": 244.31,
+          "end": 244.41,
+          "text": "l"
+        },
+        {
+          "start": 244.41,
+          "end": 244.69,
+          "text": "'hôpital"
+        },
+        {
+          "start": 244.69,
+          "end": 244.89,
+          "text": "?"
+        }
+      ]
+    },
+    {
+      "start": 249.37,
+      "end": 251.71,
+      "text": "Voilà, vous prenez votre voiture et vous l'amener à l'hôpital.",
+      "words": [
+        {
+          "start": 249.37,
+          "end": 249.49,
+          "text": "Voilà,"
+        },
+        {
+          "start": 249.95,
+          "end": 250.05,
+          "text": "vous"
+        },
+        {
+          "start": 250.05,
+          "end": 250.27,
+          "text": "prenez"
+        },
+        {
+          "start": 250.27,
+          "end": 250.47,
+          "text": "votre"
+        },
+        {
+          "start": 250.47,
+          "end": 250.83,
+          "text": "voiture"
+        },
+        {
+          "start": 250.83,
+          "end": 250.99,
+          "text": "et"
+        },
+        {
+          "start": 250.99,
+          "end": 251.11,
+          "text": "vous"
+        },
+        {
+          "start": 251.11,
+          "end": 251.25,
+          "text": "l"
+        },
+        {
+          "start": 251.25,
+          "end": 251.39,
+          "text": "'amener"
+        },
+        {
+          "start": 251.39,
+          "end": 251.47,
+          "text": "à"
+        },
+        {
+          "start": 251.47,
+          "end": 251.51,
+          "text": "l"
+        },
+        {
+          "start": 251.51,
+          "end": 251.71,
+          "text": "'hôpital."
+        }
+      ]
+    }
+  ],
+  "turns": [
+    {
+      "start": 2.6,
+      "end": 3.59,
+      "speaker": "SPEAKER_00"
+    },
+    {
+      "start": 4.35,
+      "end": 10.53,
+      "speaker": "SPEAKER_00"
+    },
+    {
+      "start": 4.62,
+      "end": 4.99,
+      "speaker": "SPEAKER_01"
+    },
+    {
+      "start": 11.44,
+      "end": 12.4,
+      "speaker": "SPEAKER_01"
+    },
+    {
+      "start": 13.95,
+      "end": 15.3,
+      "speaker": "SPEAKER_00"
+    },
+    {
+      "start": 17.51,
+      "end": 17.53,
+      "speaker": "SPEAKER_01"
+    },
+    {
+      "start": 17.58,
+      "end": 20.1,
+      "speaker": "SPEAKER_01"
+    },
+    {
+      "start": 20.85,
+      "end": 23.62,
+      "speaker": "SPEAKER_00"
+    },
+    {
+      "start": 24.99,
+      "end": 29.49,
+      "speaker": "SPEAKER_01"
+    },
+    {
+      "start": 29.63,
+      "end": 34.68,
+      "speaker": "SPEAKER_01"
+    },
+    {
+      "start": 34.88,
+      "end": 36.28,
+      "speaker": "SPEAKER_00"
+    },
+    {
+      "start": 37.43,
+      "end": 39.81,
+      "speaker": "SPEAKER_00"
+    },
+    {
+      "start": 39.13,
+      "end": 40.97,
+      "speaker": "SPEAKER_01"
+    },
+    {
+      "start": 41.12,
+      "end": 42.52,
+      "speaker": "SPEAKER_00"
+    },
+    {
+      "start": 43.42,
+      "end": 44.77,
+      "speaker": "SPEAKER_01"
+    },
+    {
+      "start": 46.05,
+      "end": 48.31,
+      "speaker": "SPEAKER_00"
+    },
+    {
+      "start": 49.46,
+      "end": 50.1,
+      "speaker": "SPEAKER_01"
+    },
+    {
+      "start": 50.1,
+      "end": 50.47,
+      "speaker": "SPEAKER_00"
+    },
+    {
+      "start": 50.88,
+      "end": 54.23,
+      "speaker": "SPEAKER_00"
+    },
+    {
+      "start": 55.47,
+      "end": 62.11,
+      "speaker": "SPEAKER_01"
+    },
+    {
+      "start": 62.84,
+      "end": 63.04,
+      "speaker": "SPEAKER_01"
+    },
+    {
+      "start": 63.04,
+      "end": 63.84,
+      "speaker": "SPEAKER_00"
+    },
+    {
+      "start": 63.19,
+      "end": 86.46,
+      "speaker": "SPEAKER_01"
+    },
+    {
+      "start": 69.12,
+      "end": 69.3,
+      "speaker": "SPEAKER_00"
+    },
+    {
+      "start": 75.58,
+      "end": 77.72,
+      "speaker": "SPEAKER_00"
+    },
+    {
+      "start": 85.65,
+      "end": 90.3,
+      "speaker": "SPEAKER_00"
+    },
+    {
+      "start": 91.22,
+      "end": 92.32,
+      "speaker": "SPEAKER_01"
+    },
+    {
+      "start": 92.56,
+      "end": 93.16,
+      "speaker": "SPEAKER_01"
+    },
+    {
+      "start": 93.16,
+      "end": 95.73,
+      "speaker": "SPEAKER_00"
+    },
+    {
+      "start": 96.86,
+      "end": 100.45,
+      "speaker": "SPEAKER_01"
+    },
+    {
+      "start": 100.56,
+      "end": 102.01,
+      "speaker": "SPEAKER_00"
+    },
+    {
+      "start": 102.95,
+      "end": 103.34,
+      "speaker": "SPEAKER_00"
+    },
+    {
+      "start": 103.34,
+      "end": 103.85,
+      "speaker": "SPEAKER_01"
+    },
+    {
+      "start": 103.39,
+      "end": 103.44,
+      "speaker": "SPEAKER_00"
+    },
+    {
+      "start": 103.53,
+      "end": 104.0,
+      "speaker": "SPEAKER_00"
+    },
+    {
+      "start": 104.0,
+      "end": 104.03,
+      "speaker": "SPEAKER_01"
+    },
+    {
+      "start": 104.03,
+      "end": 104.47,
+      "speaker": "SPEAKER_00"
+    },
+    {
+      "start": 104.47,
+      "end": 105.03,
+      "speaker": "SPEAKER_01"
+    },
+    {
+      "start": 105.55,
+      "end": 109.13,
+      "speaker": "SPEAKER_01"
+    },
+    {
+      "start": 109.03,
+      "end": 112.37,
+      "speaker": "SPEAKER_00"
+    },
+    {
+      "start": 114.29,
+      "end": 117.65,
+      "speaker": "SPEAKER_01"
+    },
+    {
+      "start": 119.47,
+      "end": 120.32,
+      "speaker": "SPEAKER_01"
+    },
+    {
+      "start": 120.32,
+      "end": 120.5,
+      "speaker": "SPEAKER_00"
+    },
+    {
+      "start": 120.5,
+      "end": 120.59,
+      "speaker": "SPEAKER_01"
+    },
+    {
+      "start": 120.59,
+      "end": 120.65,
+      "speaker": "SPEAKER_00"
+    },
+    {
+      "start": 120.65,
+      "end": 120.67,
+      "speaker": "SPEAKER_01"
+    },
+    {
+      "start": 120.67,
+      "end": 121.4,
+      "speaker": "SPEAKER_00"
+    },
+    {
+      "start": 120.72,
+      "end": 120.86,
+      "speaker": "SPEAKER_01"
+    },
+    {
+      "start": 123.02,
+      "end": 123.05,
+      "speaker": "SPEAKER_00"
+    },
+    {
+      "start": 123.05,
+      "end": 123.07,
+      "speaker": "SPEAKER_01"
+    },
+    {
+      "start": 123.07,
+      "end": 123.1,
+      "speaker": "SPEAKER_00"
+    },
+    {
+      "start": 123.1,
+      "end": 123.17,
+      "speaker": "SPEAKER_01"
+    },
+    {
+      "start": 123.17,
+      "end": 130.09,
+      "speaker": "SPEAKER_00"
+    },
+    {
+      "start": 123.35,
+      "end": 123.42,
+      "speaker": "SPEAKER_01"
+    },
+    {
+      "start": 131.59,
+      "end": 131.76,
+      "speaker": "SPEAKER_01"
+    },
+    {
+      "start": 131.76,
+      "end": 134.04,
+      "speaker": "SPEAKER_00"
+    },
+    {
+      "start": 131.96,
+      "end": 132.11,
+      "speaker": "SPEAKER_01"
+    },
+    {
+      "start": 134.05,
+      "end": 136.28,
+      "speaker": "SPEAKER_00"
+    },
+    {
+      "start": 137.28,
+      "end": 142.88,
+      "speaker": "SPEAKER_01"
+    },
+    {
+      "start": 142.81,
+      "end": 144.77,
+      "speaker": "SPEAKER_00"
+    },
+    {
+      "start": 145.66,
+      "end": 148.13,
+      "speaker": "SPEAKER_01"
+    },
+    {
+      "start": 149.64,
+      "end": 151.53,
+      "speaker": "SPEAKER_00"
+    },
+    {
+      "start": 152.34,
+      "end": 156.83,
+      "speaker": "SPEAKER_01"
+    },
+    {
+      "start": 156.99,
+      "end": 165.19,
+      "speaker": "SPEAKER_00"
+    },
+    {
+      "start": 165.36,
+      "end": 167.92,
+      "speaker": "SPEAKER_00"
+    },
+    {
+      "start": 169.15,
+      "end": 171.7,
+      "speaker": "SPEAKER_01"
+    },
+    {
+      "start": 171.51,
+      "end": 173.07,
+      "speaker": "SPEAKER_00"
+    },
+    {
+      "start": 173.76,
+      "end": 174.67,
+      "speaker": "SPEAKER_01"
+    },
+    {
+      "start": 175.85,
+      "end": 176.73,
+      "speaker": "SPEAKER_00"
+    },
+    {
+      "start": 177.05,
+      "end": 178.26,
+      "speaker": "SPEAKER_01"
+    },
+    {
+      "start": 179.45,
+      "end": 182.16,
+      "speaker": "SPEAKER_00"
+    },
+    {
+      "start": 182.75,
+      "end": 184.85,
+      "speaker": "SPEAKER_01"
+    },
+    {
+      "start": 185.45,
+      "end": 187.09,
+      "speaker": "SPEAKER_00"
+    },
+    {
+      "start": 187.56,
+      "end": 189.54,
+      "speaker": "SPEAKER_01"
+    },
+    {
+      "start": 188.93,
+      "end": 189.91,
+      "speaker": "SPEAKER_00"
+    },
+    {
+      "start": 190.7,
+      "end": 191.95,
+      "speaker": "SPEAKER_01"
+    },
+    {
+      "start": 192.22,
+      "end": 194.94,
+      "speaker": "SPEAKER_00"
+    },
+    {
+      "start": 196.2,
+      "end": 205.2,
+      "speaker": "SPEAKER_01"
+    },
+    {
+      "start": 206.5,
+      "end": 208.13,
+      "speaker": "SPEAKER_00"
+    },
+    {
+      "start": 209.28,
+      "end": 209.35,
+      "speaker": "SPEAKER_00"
+    },
+    {
+      "start": 209.35,
+      "end": 209.84,
+      "speaker": "SPEAKER_01"
+    },
+    {
+      "start": 209.84,
+      "end": 210.55,
+      "speaker": "SPEAKER_00"
+    },
+    {
+      "start": 213.77,
+      "end": 213.9,
+      "speaker": "SPEAKER_00"
+    },
+    {
+      "start": 213.97,
+      "end": 214.43,
+      "speaker": "SPEAKER_00"
+    },
+    {
+      "start": 214.82,
+      "end": 217.87,
+      "speaker": "SPEAKER_00"
+    },
+    {
+      "start": 219.2,
+      "end": 220.05,
+      "speaker": "SPEAKER_01"
+    },
+    {
+      "start": 219.68,
+      "end": 222.26,
+      "speaker": "SPEAKER_00"
+    },
+    {
+      "start": 223.76,
+      "end": 225.03,
+      "speaker": "SPEAKER_01"
+    },
+    {
+      "start": 225.01,
+      "end": 227.05,
+      "speaker": "SPEAKER_00"
+    },
+    {
+      "start": 227.89,
+      "end": 229.75,
+      "speaker": "SPEAKER_01"
+    },
+    {
+      "start": 230.32,
+      "end": 230.86,
+      "speaker": "SPEAKER_01"
+    },
+    {
+      "start": 230.95,
+      "end": 233.99,
+      "speaker": "SPEAKER_00"
+    },
+    {
+      "start": 235.25,
+      "end": 238.29,
+      "speaker": "SPEAKER_01"
+    },
+    {
+      "start": 235.32,
+      "end": 236.06,
+      "speaker": "SPEAKER_00"
+    },
+    {
+      "start": 238.93,
+      "end": 242.24,
+      "speaker": "SPEAKER_00"
+    },
+    {
+      "start": 242.81,
+      "end": 244.16,
+      "speaker": "SPEAKER_01"
+    },
+    {
+      "start": 243.69,
+      "end": 244.94,
+      "speaker": "SPEAKER_00"
+    },
+    {
+      "start": 246.41,
+      "end": 250.03,
+      "speaker": "SPEAKER_01"
+    },
+    {
+      "start": 249.11,
+      "end": 251.86,
+      "speaker": "SPEAKER_00"
+    },
+    {
+      "start": 252.55,
+      "end": 254.59,
+      "speaker": "SPEAKER_01"
+    },
+    {
+      "start": 254.62,
+      "end": 255.06,
+      "speaker": "SPEAKER_00"
+    },
+    {
+      "start": 255.77,
+      "end": 257.12,
+      "speaker": "SPEAKER_01"
+    },
+    {
+      "start": 259.69,
+      "end": 259.97,
+      "speaker": "SPEAKER_01"
+    }
+  ],
+  "summary": {
+    "topics": [
+      "douleur thoracique",
+      "antécédents d'infarctus",
+      "appel d'urgence",
+      "transport à l'hôpital"
+    ],
+    "decisions": [
+      "Décision d'amener la patiente à l'hôpital en voiture"
+    ],
+    "action_items": [
+      "SPEAKER_01 doit conduire la patiente à l'hôpital"
+    ],
+    "open_questions": [
+      "Quel type de douleur ressent la patiente?",
+      "La patiente a-t-elle des antécédents d'infarctus?",
+      "La patiente a-t-elle d'autres problèmes de santé?"
+    ]
+  }
+}

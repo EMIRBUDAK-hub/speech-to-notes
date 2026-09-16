@@ -1,0 +1,78 @@
+{
+  "language": "fr",
+  "segments": [
+    {
+      "start": 1.33,
+      "end": 10.43,
+      "text": "Rendez-vous le 14 à 15h30 avec Monsieur Lefebvre, budget 2300€",
+      "words": [
+        {
+          "start": 1.33,
+          "end": 2.43,
+          "text": "Rendez"
+        },
+        {
+          "start": 2.43,
+          "end": 2.77,
+          "text": "-vous"
+        },
+        {
+          "start": 2.77,
+          "end": 3.13,
+          "text": "le"
+        },
+        {
+          "start": 3.13,
+          "end": 3.75,
+          "text": "14"
+        },
+        {
+          "start": 3.75,
+          "end": 4.23,
+          "text": "à"
+        },
+        {
+          "start": 4.23,
+          "end": 5.25,
+          "text": "15h30"
+        },
+        {
+          "start": 5.25,
+          "end": 6.35,
+          "text": "avec"
+        },
+        {
+          "start": 6.35,
+          "end": 7.03,
+          "text": "Monsieur"
+        },
+        {
+          "start": 7.03,
+          "end": 8.07,
+          "text": "Lefebvre,"
+        },
+        {
+          "start": 8.67,
+          "end": 8.97,
+          "text": "budget"
+        },
+        {
+          "start": 8.97,
+          "end": 10.43,
+          "text": "2300€"
+        }
+      ]
+    }
+  ],
+  "turns": null,
+  "summary": {
+    "topics": [
+      "rendez-vous le 14 à 15h30 avec Monsieur Lefebvre"
+    ],
+    "decisions": [
+      "rendez-vous fixé le 14 à 15h30"
+    ],
+    "action_items": [],
+    "open_questions": []
+  }
+}

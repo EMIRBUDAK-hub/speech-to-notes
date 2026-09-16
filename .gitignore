@@ -220,10 +220,11 @@ __marimo__/
 # Project-specific
 # personal study notes, not part of the deliverable
 notes/
-# local audio files used for testing
+# local audio files used for testing (the committed examples/ folder is the exception)
 samples/
 *.mp3
 *.wav
+!examples/*.wav
 
 # Transcripts produced by the CLI
 output/

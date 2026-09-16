@@ -24,7 +24,9 @@ the [Known limitations](#known-limitations) say what has *not* been checked.
 Layout: `speech_to_notes/` is the pipeline (one module per stage: `audio`,
 `transcribe`, `diarize`, `align`, `summarize`, `speak`, `output`, `cli`);
 `scripts/` holds the one-off benchmarks behind the tables below; `tests/`
-covers the pure logic.
+covers the pure logic; `examples/` has two real inputs and every file the
+tool produced from them — the fastest way to see what it does, since running
+it needs WSL, a Hugging Face token and a 4 GB model.
 
 ## Setup
 
@@ -120,8 +122,8 @@ four fixed lists — topics, decisions, action items, open questions — with
 Example on a 12 s French recording, summary through the API and read aloud:
 
 ```
-$ python -m speech_to_notes samples/sample_fr.wav --summarize api --speak
-Loaded samples/sample_fr.wav (11.7 s). Transcribing with 'small'...
+$ python -m speech_to_notes examples/sample_fr.wav --summarize api --speak
+Loaded examples/sample_fr.wav (11.7 s). Transcribing with 'small'...
   transcription: 3.2 s (RTF 0.27), 1 segment(s), language 'fr'
 Summarizing with 'api'...
   summary: 1.1 s with groq:openai/gpt-oss-120b, ok
