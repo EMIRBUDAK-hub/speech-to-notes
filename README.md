@@ -9,13 +9,22 @@ French and English are supported.
 
 ## Status
 
-Work in progress. Milestones, in order:
+All five milestones are in place:
 
-1. Transcription — audio in, timestamped transcript out (done)
-2. Speaker diarization — who spoke when (done)
-3. Structured summary — topics, decisions, action items, open questions (done)
-4. Voice output — read the summary aloud with a local TTS engine (done)
-5. Polish — clean CLI, examples, known limitations
+1. Transcription — audio in, timestamped transcript out
+2. Speaker diarization — who spoke when
+3. Structured summary — topics, decisions, action items, open questions
+4. Voice output — the summary read aloud by a local TTS engine
+5. Polish — CLI, tests on what actually breaks, this README
+
+Every design decision below was measured before it was taken; the numbers are
+from one laptop (8-core CPU, no GPU) and one annotated French recording, and
+the [Known limitations](#known-limitations) say what has *not* been checked.
+
+Layout: `speech_to_notes/` is the pipeline (one module per stage: `audio`,
+`transcribe`, `diarize`, `align`, `summarize`, `speak`, `output`, `cli`);
+`scripts/` holds the one-off benchmarks behind the tables below; `tests/`
+covers the pure logic.
 
 ## Setup
 
@@ -108,16 +117,32 @@ four fixed lists — topics, decisions, action items, open questions — with
 - est-ce que la personne a déjà eu des problèmes de santé cardiaques?
 ```
 
-Example on a 12 s French recording:
+Example on a 12 s French recording, summary through the API and read aloud:
 
 ```
-$ python -m speech_to_notes samples/sample_fr.wav
+$ python -m speech_to_notes samples/sample_fr.wav --summarize api --speak
 Loaded samples/sample_fr.wav (11.7 s). Transcribing with 'small'...
-Done in 4.1 s (RTF 0.35). 1 segment(s) -> output/sample_fr.txt / .json
+  transcription: 3.2 s (RTF 0.27), 1 segment(s), language 'fr'
+Summarizing with 'api'...
+  summary: 1.1 s with groq:openai/gpt-oss-120b, ok
+  speech: 1.7 s -> output/sample_fr.summary.wav
+Done -> output/sample_fr.txt / .json / .summary.md / .summary.wav
 
 $ cat output/sample_fr.txt
-[00:01] Rendez-vous le 14 à 15h30 avec monsieur Lefebvre, budget 2300€.
+[00:01] Rendez-vous le 14 à 15h30 avec Monsieur Lefebvre, budget 2300€
 ```
+
+## Tests
+
+```bash
+python -m pytest tests
+```
+
+Thirty tests, all on pure logic that a wrong sign or a changed model reply
+would break silently: the overlap/distance maths and the smoothing rule of
+the alignment, the summary parser and its retry loop, timestamp formatting.
+Nothing tests the models themselves — slow, non-deterministic, and not our
+code; the `scripts/` benchmarks are how those are judged.
 
 ## Design decisions
 
