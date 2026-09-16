@@ -200,6 +200,14 @@ hand-annotated reference): 2 speakers found, **DER 14.6 %**, RTF 0.5–1.2 on
 this laptop depending on load (Whisper is at 0.05 on the same file — the
 bottleneck is diarization, which is where any future speed work goes).
 
+Is 14.6 % good? DER is the share of speech time attributed to the wrong
+speaker, missed, or invented, after the best mapping between anonymous labels
+and reference names — lower is better, 0 is perfect. For the same pipeline,
+pyannote publishes 8.9 % on clean French broadcast (REPERE), 17 % on
+meetings (AMI) and 26.7 % on telephone conversations (CALLHOME). A two-speaker
+8 kHz phone call at 14.6 % sits where one would expect: worse than clean
+studio audio, better than multi-party telephone corpora.
+
 Whisper and pyannote each produce their own timeline. Attaching a speaker to
 every transcribed word is our code (`speech_to_notes/align.py`), with rules
 decided on real output rather than guessed:
@@ -282,6 +290,13 @@ heading is announced as a word, each item becomes one sentence, an empty
 list is read as "aucune"/"none" rather than skipped in silence. Every heading
 ends with a full stop because that is where the voice pauses — punctuation
 for the ear. 19 s of French audio takes about 1.4 s to generate.
+
+## License
+
+MIT — see `LICENSE`. The models have their own: Whisper (MIT), pyannote
+`community-1` (CC BY 4.0), Mistral-7B-Instruct (Apache 2.0), Piper voices
+(per-voice, see their cards). The Simsamu recording used in the examples is
+MIT-licensed by its authors (medkit, Hugging Face `medkit/simsamu`).
 
 ## Known limitations
 
